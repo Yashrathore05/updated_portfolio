@@ -1,0 +1,6 @@
+# robots.txt file for Yash Rathore's portfolio website
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yash.immersivex.in/sitemap.xml 
