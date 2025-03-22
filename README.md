@@ -14,12 +14,6 @@ A modern cyberpunk-themed portfolio website with 3D effects, VR mode, and contac
 
 The contact form is already set up with EmailJS to send messages directly to your email. The following credentials are configured:
 
-- Public Key: HAVMhHXyZrplCnKuF
-- Service ID: service_g94h78q
-- Template ID: template_6oopjgl
-
-If you need to modify these settings:
-
 1. **Access Your EmailJS Account**:
    - Go to [EmailJS](https://www.emailjs.com/) and log in to your account
    - The free plan allows 200 emails per month
