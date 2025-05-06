@@ -1,6 +1,13 @@
 // Add initial-load class to body to prevent FOUC (Flash of Unstyled Content)
 document.body.classList.add('initial-load');
 
+// Initialize mobile menu as early as possible
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileMenu);
+} else {
+    initMobileMenu();
+}
+
 // Wait for the page to load
 window.addEventListener('load', () => {
     document.body.classList.remove('initial-load');
@@ -13,6 +20,78 @@ window.addEventListener('load', () => {
     initProficiencyBars();
     initVRMode();
 });
+
+// Mobile menu initialization
+function initMobileMenu() {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const navContent = document.querySelector('.nav-content');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (!mobileMenuButton) return;
+    
+    // Toggle menu on button click
+    let isMenuOpen = false;
+    mobileMenuButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent triggering document click event
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            navLinks.style.display = 'flex';
+            mobileMenuButton.innerHTML = '✕';
+            mobileMenuButton.style.transform = 'rotate(90deg)';
+            
+            // Use setTimeout to trigger CSS transition
+            setTimeout(() => {
+                navLinks.classList.add('active');
+            }, 10);
+        } else {
+            navLinks.classList.remove('active');
+            mobileMenuButton.innerHTML = '☰';
+            mobileMenuButton.style.transform = 'rotate(0deg)';
+            
+            // Hide nav links after transition completes
+            setTimeout(() => {
+                if (!isMenuOpen) {
+                    navLinks.style.display = 'none';
+                }
+            }, 300);
+        }
+    });
+    
+    // Close menu when clicking on a nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768 && isMenuOpen) {
+                mobileMenuButton.click();
+            }
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (isMenuOpen && !navContent.contains(e.target)) {
+            mobileMenuButton.click();
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navLinks.style.display = 'flex';
+            navLinks.classList.remove('active');
+            isMenuOpen = false;
+            mobileMenuButton.innerHTML = '☰';
+            mobileMenuButton.style.transform = 'rotate(0deg)';
+        } else if (!isMenuOpen) {
+            navLinks.style.display = 'none';
+        }
+    });
+    
+    // Initialize menu state based on screen size
+    if (window.innerWidth <= 768) {
+        navLinks.style.display = 'none';
+    }
+}
 
 // VR and 3D Controls
 let isVRMode = false;
@@ -543,65 +622,6 @@ document.querySelectorAll('.skill-items span').forEach(skill => {
         skill.style.transform = 'translateZ(0) scale(1)';
         skill.style.boxShadow = 'none';
     });
-});
-
-// Mobile menu functionality
-const mobileMenuButton = document.createElement('button');
-mobileMenuButton.classList.add('mobile-menu-button');
-mobileMenuButton.innerHTML = '☰';
-mobileMenuButton.style.transition = 'transform 0.3s ease';
-
-const navContent = document.querySelector('.nav-content');
-navContent.prepend(mobileMenuButton);
-
-const navLinks = document.querySelector('.nav-links');
-
-// Show/hide mobile menu button based on screen size
-function toggleMobileMenuButton() {
-    if (window.innerWidth <= 768) {
-        mobileMenuButton.style.display = 'block';
-        if (!isMenuOpen) {
-            navLinks.style.display = 'none';
-        }
-    } else {
-        mobileMenuButton.style.display = 'none';
-        navLinks.style.display = 'flex';
-        navLinks.style.opacity = '1';
-        navLinks.style.transform = 'translateY(0)';
-    }
-}
-
-window.addEventListener('resize', toggleMobileMenuButton);
-toggleMobileMenuButton();
-
-// Mobile menu functionality with animation
-let isMenuOpen = false;
-
-mobileMenuButton.addEventListener('click', () => {
-    isMenuOpen = !isMenuOpen;
-    
-    if (isMenuOpen) {
-        navLinks.style.display = 'flex';
-        mobileMenuButton.style.transform = 'rotate(90deg)';
-        requestAnimationFrame(() => {
-            navLinks.classList.add('active');
-        });
-    } else {
-        navLinks.classList.remove('active');
-        mobileMenuButton.style.transform = 'rotate(0deg)';
-        setTimeout(() => {
-            if (!isMenuOpen) {
-                navLinks.style.display = 'none';
-            }
-        }, 300);
-    }
-});
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', (e) => {
-    if (isMenuOpen && !navContent.contains(e.target)) {
-        mobileMenuButton.click();
-    }
 });
 
 // Add active class to current section in navigation
