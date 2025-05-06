@@ -935,4 +935,96 @@ footer {
 .vr-mode .experience-item,
 .vr-mode .achievement-item {
     transform: translateZ(200px) !important;
+}
+
+/* Research Papers Section */
+.research {
+    padding: var(--section-padding);
+    opacity: 1 !important;
+    transform: none !important;
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.research-item {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    margin-bottom: 2rem;
+}
+
+.research-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.institution {
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.5);
+}
+
+.research-content {
+    margin-top: 1.5rem;
+}
+
+.research-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+}
+
+.research-topics span {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition);
+    transform-style: preserve-3d;
+}
+
+.research-topics span:hover {
+    transform: translateZ(20px) scale(1.1);
+    box-shadow: 
+        0 0 15px rgba(0, 255, 255, 0.5),
+        0 0 30px rgba(255, 0, 255, 0.3);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.paper-link {
+    margin-top: 1.5rem;
+}
+
+.paper-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary-color), rgba(0, 255, 255, 0.7));
+    border: none;
+    border-radius: 2rem;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.paper-link a:hover {
+    background: linear-gradient(135deg, var(--secondary-color), rgba(255, 0, 255, 0.7));
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.7);
+    transform: translateY(-5px) translateZ(20px);
 } 
