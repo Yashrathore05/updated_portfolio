@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://yash.immersivex.in/sitemap.xml 
+Sitemap: https://theyashrathore.in/sitemap.xml
