@@ -813,7 +813,7 @@ function initContactForm() {
             from_email: email,
             subject: subject,
             message: message,
-            to_email: "yashrathore.yr05@gmail.com" // Your email address
+            to_email: "contact@theyashrathore.in" // Your email address
         };
         
         // Send email using EmailJS
