@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+{
+    "require": {
+        "mailgun/mailgun-php": "^4.2",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
+=======
+{
+    "require": {
+        "mailgun/mailgun-php": "^4.2",
+        "nyholm/psr7": "^1.8"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
+>>>>>>> 62a884cba2d21ec3e730ac55bb3c522033b09e5f
