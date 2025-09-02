@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background: #1c1c1c;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* Aspect ratio 16:9 */
+    }
+
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .description {
+      padding: 20px;
+    }
+
+    .description h2 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+      color: #00c4ff;
+    }
+
+    .description p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .description .tech {
+      margin-top: 10px;
+      padding: 10px;
+      background: #252525;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #007bff;
+      text-decoration: none;
+      border-radius: 5px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .description h2 {
+        font-size: 1.5rem;
+      }
+
+      .description p {
+        font-size: 0.9rem;
+      }
+
+      .back-btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Project Demo</h1>
+  </header>
+
+  <div class="container">
+    <div class="video-wrapper">
+      <video controls>
+        <source src="kb.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="description">
+      <h2>Knowledge Bank</h2>
+      <p>
+        Knowledge Bank is a dynamic educational platform designed for diploma and engineering students.
+        It provides personalized learning experiences, interactive tools, and a wide range of curated resources 
+        to enhance knowledge and productivity.
+      </p>
+      <div class="tech">
+        <b>Technologies Used:</b> HTML, CSS, JavaScript, PHP, SQL
+      </div>
+      <a href="https://yashrathore05.github.io/Knowledge-Bank/home.html" class="back-btn">Project Link</a>
+    </div>
+  </div>
+
+  <a href="Proj-vode.html" class="back-btn">Back to Projects</a>
+</body>
+</html>

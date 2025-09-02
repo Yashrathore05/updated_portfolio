@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yash Project Video</title>
+  <style>
+    /* General styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* Curtain styles */
+    .curtain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .curtain .left,
+    .curtain .right {
+      position: absolute;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #111;
+      z-index: 1001;
+    }
+
+    .curtain .left {
+      left: 0;
+      animation: split-left 2s ease-in-out forwards;
+    }
+
+    .curtain .right {
+      right: 0;
+      animation: split-right 2s ease-in-out forwards;
+    }
+
+    .curtain h1 {
+      font-size: 3rem;
+      color: #fff;
+      animation: fadeIn 1.5s ease-in;
+      z-index: 1002;
+    }
+
+    @keyframes split-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes split-right {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Sparkle effect */
+    .sparkle {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .sparkle div {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: white;
+      border-radius: 50%;
+      animation: sparkle-animation 2s linear infinite;
+    }
+
+    @keyframes sparkle-animation {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0);
+        opacity: 0;
+      }
+    }
+
+    /* Main Content */
+    .main-content {
+      opacity: 0;
+      animation: fadeInContent 0.5s ease-in-out 3s forwards;
+    }
+
+    @keyframes fadeInContent {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    header {
+      text-align: center;
+      padding: 8px 0;
+      background-color: #111;
+      border-bottom: 1px solid #333;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    /* Card Container */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    /* Card Styles */
+    .card {
+      background-color: #1c1c1c;
+      border: 1px solid #333;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 15px;
+    }
+
+    .card-content h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: #f9f9f9;
+    }
+
+    .card-content p {
+      margin: 0;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
+
+    .view-demo {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    .view-demo:hover {
+      background-color: #0056b3;
+    }
+    .curtain h1 {
+  font-size: 3rem; /* Default size for larger screens */
+  color: #fff;
+  text-align: center;
+  z-index: 1002;
+  margin: 0;
+  position: absolute; /* Ensures precise positioning */
+  top: 50%; /* Centers vertically */
+  left: 50%; /* Centers horizontally */
+  transform: translate(-50%, -50%); /* Adjusts for the element's size */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+  .curtain h1 {
+    font-size: 4rem; /* Smaller font size for mobile */
+    padding: 0 10px; /* Add some padding for better spacing */
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Curtain Animation -->
+  <div class="curtain">
+    <div class="left"></div>
+    <div class="right"></div>
+    <h1>Yash Rathore Presents</h1>
+  </div>
+
+  <!-- Sparkle Effect -->
+  <div class="sparkle"></div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <header>
+      <h1>PROJECT VIDEO'S</h1>
+    </header>
+    <div class="card-container">
+      <!-- Cards -->
+      <div class="card-container">
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="kb1.png" alt="Knowledge Bank" class="card-img">
+          <div class="card-content">
+            <h2>Knowledge Bank</h2>
+            <p>Developed a dynamic educational platform for diploma and engineering students with personalized features.</p>
+            <br>
+            <b><p>(HTML, CSS, JS, PHP, SQL)</p></b>
+            <p class="contributors">Contributors: <span style="color: #00bcd4;">Yash Rathore</span></p>
+            <a href="kb_demo_vid.html" class="view-demo">View Demo</a>
+          </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="ix.png" alt="Project 2 Thumbnail" class="card-img">
+          <div class="card-content">
+            <h2>IMMERSIVE X</h2>
+            <p>Built a VR platform for showcasing products, managing user authentication, and secure transactions.</p>
+            <br>
+            <b><p>(NextJS, CSS, JavaScript, AI)</p></b>
+            <p class="contributors">Contributors: <span style="color: #c363d4;">Yash Rathore</span></p>
+            <a href="immersive-x_vid.html" class="view-demo">View Demo</a>
+          </div>
+        </div>
+  
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="FMS.png" alt="Project 3 Thumbnail" class="card-img">
+          <div class="card-content">
+            <h2>Fee Management System</h2>
+            <p>Developed a system for managing student fees and statuses with tailored admin features.</p>
+            <br>
+            <b><p>(Java, SQL DERBY)</p></b>
+            <p class="contributors">Contributors: <span style="color: #c26767;">Yash Rathore</span></p>
+            <a href="fee-management.html" class="view-demo">Video Not Availble</a>
+          </div>
+        </div>
+  
+        <!-- Card 4 -->
+        <div class="card">
+          <img src="TMS.jpg" alt="Project 4 Thumbnail" class="card-img">
+          <div class="card-content">
+            <h2>Businesses Internal Task Management System</h2>
+            <p>Built a task dashboard with features like authentication, admin controls, and PDF export.</p>
+            <br>
+            <b><p>(HTML, CSS, JS, PHP, SQL)</p></b>
+            <p class="contributors">Contributors: <span style="color: #11f0ad;">Yash Rathore</span></p>
+            <a href="task-management.html" class="view-demo">View Demo</a>
+          </div>
+        </div>
+  
+        <!-- Card 5 -->
+        <div class="card">
+          <img src="ss1.png" alt="Study Stream X" class="card-img">
+          <div class="card-content">
+            <h2>Study Stream X</h2>
+            <p>A Windows-based assignment system with AI plagiarism detection and intuitive interface.</p>
+            <br>
+            <b><p>(HTML, CSS, JS, PHP, SQL)</p></b>
+            <p class="contributors">Contributors: <span style="color: #e0e414;">Yash Rathore</span></p>
+            <a href="study-stream-x.html" class="view-demo">View Demo</a>
+          </div>
+        </div>
+      </div>
+
+  <script>
+    // Remove curtain and sparkle after animation
+    setTimeout(() => {
+      document.querySelector('.curtain').style.display = 'none';
+      document.querySelector('.sparkle').style.display = 'none';
+    }, 3000);
+
+    // Sparkle effect generation
+    const sparkle = document.querySelector('.sparkle');
+    for (let i = 0; i < 100; i++) {
+      const spark = document.createElement('div');
+      spark.style.left = Math.random() * 100 + '%';
+      spark.style.top = Math.random() * 100 + '%';
+      spark.style.animationDuration = Math.random() * 2 + 1 + 's';
+      sparkle.appendChild(spark);
+    }
+  </script>
+</body>
+</html>
